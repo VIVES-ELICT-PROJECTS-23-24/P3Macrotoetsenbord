@@ -156,21 +156,21 @@ namespace macro_testen
         private void Button2()
         {
             SimulateWinRKeyPress();
-            System.Threading.Thread.Sleep(100);
+            System.Threading.Thread.Sleep(200);
             SendKeys.SendWait("Notepad");
             simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.EXECUTE);
         }
 
         private void Button3()
         {
-            System.Threading.Thread.Sleep(300);
+            System.Threading.Thread.Sleep(200);
             SendKeys.SendWait("Hello, World!");
         }
                 
         private void Button4()
         {
             SimulateWinRKeyPress();
-            System.Threading.Thread.Sleep(100);
+            System.Threading.Thread.Sleep(200);
             SendKeys.SendWait("winword");
             simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.EXECUTE);
         }
@@ -178,7 +178,7 @@ namespace macro_testen
         private void Button5()
         {
             SimulateWinRKeyPress();
-            System.Threading.Thread.Sleep(100);
+            System.Threading.Thread.Sleep(200);
             SendKeys.SendWait("Excel");
             simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.EXECUTE);
         }
