@@ -186,7 +186,7 @@ namespace macro_testen
         private void Outlook_Click(object sender, RoutedEventArgs e)
         {
             SimulateWinRKeyPress();
-            System.Threading.Thread.Sleep(100);
+            System.Threading.Thread.Sleep(200);
             SendKeys.SendWait("Outlook");
             simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.EXECUTE);
         }
