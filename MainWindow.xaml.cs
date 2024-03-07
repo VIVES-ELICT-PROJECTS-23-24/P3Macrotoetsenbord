@@ -111,7 +111,6 @@ namespace macro_testen
         {
             SerialPort data = (SerialPort)sender;
             String indata = data.ReadExisting();
-            // System.Windows.MessageBox.Show(indata, "DATA", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             switch (Convert.ToInt32(indata))
             {
                 case 1:
