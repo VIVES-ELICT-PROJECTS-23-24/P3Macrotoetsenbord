@@ -1,0 +1,55 @@
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.DownloardContainer {
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.DownloardContainer h3 {
+    color: #333333;
+}
+
+.DownloardContainer p {
+    color: #666;
+}
+
+.DownloardContainer ul {
+    list-style-type: disc;
+    color: #666;
+    margin-left: 20px;
+}
+
+.download-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.download-btn:hover {
+    background-color: #0056b3;
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
