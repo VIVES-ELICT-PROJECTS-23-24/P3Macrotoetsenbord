@@ -23,10 +23,21 @@ namespace macro_testen
 {
     public partial class MainWindow : Window
     {
+        [DllImport("user32.dll")]
+        private static extern bool SetCursorPos(int X, int Y);
+
+        [DllImport("user32.dll")]
+        private static extern bool GetCursorPos(out POINT lpPoint);
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct POINT
+        {
+            public int X;
+            public int Y;
+        }
+
         public string Poort { get; set; }
-        private SerialPort serialPort;
         bool geenComPoort = true;
-        bool site;
 
         private readonly InputSimulator simulator;
         private SavedData data;
@@ -45,31 +56,26 @@ namespace macro_testen
             {
                 // zoek alle mogelijke poorten
                 String[] Ports = SerialPort.GetPortNames();
-                COMpoortenlijst.Items.Clear();
-
-                foreach (string poort in Ports) // zet alle COM-poorten in een lijst om te zien
-                {
-                    COMpoortenlijst.Items.Add(poort);
-                }
-                COMpoortenlijst.SelectedIndex = 0;
 
                 foreach (string poort in Ports) // overloopt alle gevonden COM-poorts
                 {
-                    SerialPort port = new SerialPort(poort);
+                    SerialPort port = new SerialPort(poort, 9600);
                     try // opent poort en zoekt achter data
                     {
                         port.Open();
-                        SerialPort data = port;
-                        String indata = data.ReadExisting();
-                        string trimmedData = indata.Trim();
-                        RecivedData.Content = trimmedData;
-                        if (trimmedData == "10") // als er een 10 wordt ontvangen stopt de controleloop (van de microcontroller)
+                        String indata = port.ReadExisting();
+                        RecivedData.Content = indata;
+
+                        port.DtrEnable = true;
+                        port.DataReceived += DatareceivedHandler;
+
+                        if (indata == "z") // als er een 10 wordt ontvangen stopt de controleloop (van de microcontroller)
                         {
-                            port.DataReceived += DatareceivedHandler;
+                            port.DiscardInBuffer();
+
                             try
                             {
-                                serialPort = port;
-                                serialPort.Write("0");
+                                System.Windows.MessageBox.Show("Toetsenbord gevonden, druk knop 1 in.");
                             }
                             catch (Exception ex)
                             {
@@ -77,45 +83,49 @@ namespace macro_testen
                             }
                             geenComPoort = false;
                         }
-                        if (indata.Trim() != "10") // indien er niets wordt ontvangen, sluit de poort opnieuw
+                        if (indata.Trim() != "z") // indien er niets wordt ontvangen, sluit de poort opnieuw
                         {
                             port.Close();
                         }
                     }
                     catch (Exception ex) // meld probleem bij een poort
                     {
-                        System.Windows.MessageBox.Show($"Error accessing port {poort}: {ex.Message}");
+                        //System.Windows.MessageBox.Show($"Error accessing port {poort}: {ex.Message}");
                     }
                 }
             }
         }
-        private void keypress_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
         private void DatareceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
-            SerialPort data = (SerialPort)sender;
-            String indata = data.ReadExisting();
-            string trimmedData = indata.Trim();
-            System.Threading.Thread.Sleep(200);
-            if (trimmedData != "10")
+            SerialPort portdata = (SerialPort)sender;
+            String indata = portdata.ReadExisting();
+            try
             {
-                SimulateWinRKeyPress();
-                if (site == true)
+                if (indata == "1" || indata == "2" || indata == "3" || indata == "4" || indata == "5" || indata == "6" || indata == "7" || indata == "8" || indata == "9")
                 {
-                    System.Windows.Controls.TextBox textBox = sender as System.Windows.Controls.TextBox;
-                    int textBoxIndex = int.Parse(textBox.Name.Substring(4));
-                    string siteName = "site" + textBoxIndex;
-                    UIElement TBtekst = FindName(siteName) as UIElement;
-                    SendKeys.SendWait(((System.Windows.Controls.TextBox)TBtekst).Text.ToString());
+                    SimulateWinRKeyPress();
+                    if (data.site[int.Parse(indata)] == true)
+                    {
+                        System.Windows.Controls.TextBox textBox = sender as System.Windows.Controls.TextBox;
+                        int textBoxIndex = int.Parse(textBox.Name.Substring(4));
+                        string siteName = "site" + indata;
+                        UIElement TBtekst = FindName(siteName) as UIElement;
+                        SendKeys.SendWait(((System.Windows.Controls.TextBox)TBtekst).Text.ToString());
+                    }
+                    else
+                    {
+                        SendKeys.SendWait(data.VarPrograms[int.Parse(indata)]);
+                    }
+                    simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.EXECUTE);
                 }
                 else
                 {
-                    //SendKeys.SendWait(data.VarPrograms[int.Parse(indata)]);
-                    System.Windows.MessageBox.Show("yur");
+                    
                 }
-                simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.EXECUTE);
+            }
+            catch (Exception ex)
+            {
+                //System.Windows.MessageBox.Show($"Error writing to serial port: {ex.Message}");
             }
         }
         private void SimulateWinRKeyPress()
@@ -174,20 +184,6 @@ namespace macro_testen
                 ((System.Windows.Controls.TextBox)TBtekst).Text = data.Sites[i];
             }
         }
-        private void Debug_Click(object sender, RoutedEventArgs e)
-        {
-            SimulateWinRKeyPress();
-            System.Threading.Thread.Sleep(200);
-            if (site == true)
-            {
-                SendKeys.SendWait(site1.Text.ToString());
-            }
-            else
-            {   
-                SendKeys.SendWait(data.VarPrograms[1]);
-            }
-            simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.EXECUTE);
-        }
         private void CB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             System.Windows.Controls.ComboBox comboBox = sender as System.Windows.Controls.ComboBox;
@@ -235,6 +231,21 @@ namespace macro_testen
             UIElement TBtekst = FindName(siteName) as UIElement;
             data.Sites[textBoxIndex] = ((System.Windows.Controls.TextBox)TBtekst).Text.ToString();
             JsonManager.SaveData(data);
+        }
+
+        private void UpButton_Click(object sender, RoutedEventArgs e)
+        {
+            const int moveAmount = -25; // Adjust this value as needed
+
+            // Get current cursor position
+            GetCursorPos(out POINT currentPos);
+
+            // Calculate new cursor position
+            int newX = currentPos.X;
+            int newY = currentPos.Y + moveAmount;
+
+            // Set new cursor position
+            SetCursorPos(newX, newY);
         }
     }
 }

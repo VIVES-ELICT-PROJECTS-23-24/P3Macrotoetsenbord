@@ -5,28 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:macro_testen"
         mc:Ignorable="d"
-        Title="MainWindow" Height="381" Width="969" ResizeMode="NoResize">
+        Title="MainWindow" Height="381" Width="733" ResizeMode="NoResize">
     <Grid>
-        <Button   x:Name="debug" Content="debug"           HorizontalAlignment="Left" VerticalAlignment="Top" Click="Debug_Click"    Height="53" Width="65" Margin="741,250,0,0"/>
-        <Label    x:Name="RecivedData" Content="Label" HorizontalAlignment="Left" Margin="897,0,0,0" VerticalAlignment="Center"/>
-        <ListBox  x:Name="COMpoortenlijst"                  Margin="700,31,122,164" IsSynchronizedWithCurrentItem="True"/>
+        <Label    x:Name="RecivedData" Content="Label" HorizontalAlignment="Left" Margin="674,145,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="CB1" HorizontalAlignment="Left"   Margin="22,53,0,0"      VerticalAlignment="Top" Width="120" SelectionChanged="CB_SelectionChanged"/>
         <ComboBox x:Name="CB4" HorizontalAlignment="Left"   Margin="22,147,0,0"     VerticalAlignment="Top" Width="120" SelectionChanged="CB_SelectionChanged"/>
         <ComboBox x:Name="CB7" HorizontalAlignment="Left"   Margin="22,241,0,0"     VerticalAlignment="Top" Width="120" SelectionChanged="CB_SelectionChanged"/>
         <ComboBox x:Name="CB2" HorizontalAlignment="Left"   Margin="219,53,0,0"     VerticalAlignment="Top" Width="120" SelectionChanged="CB_SelectionChanged"/>
         <ComboBox x:Name="CB5" HorizontalAlignment="Left"   Margin="219,147,0,0"    VerticalAlignment="Top" Width="120" SelectionChanged="CB_SelectionChanged"/>
         <ComboBox x:Name="CB8" HorizontalAlignment="Left"   Margin="219,241,0,0"    VerticalAlignment="Top" Width="120" SelectionChanged="CB_SelectionChanged"/>
-        <ComboBox x:Name="CB3" HorizontalAlignment="Center" Margin="0,53,0,0"       VerticalAlignment="Top" Width="120" SelectionChanged="CB_SelectionChanged"/>
-        <ComboBox x:Name="CB6" HorizontalAlignment="Center" Margin="0,147,0,0"      VerticalAlignment="Top" Width="120" SelectionChanged="CB_SelectionChanged"/>
-        <ComboBox x:Name="CB9" HorizontalAlignment="Center" Margin="0,241,0,0"      VerticalAlignment="Top" Width="120" SelectionChanged="CB_SelectionChanged"/>
+        <ComboBox x:Name="CB3" HorizontalAlignment="Left" Margin="406,53,0,0"       VerticalAlignment="Top" Width="120" SelectionChanged="CB_SelectionChanged"/>
+        <ComboBox x:Name="CB6" HorizontalAlignment="Left" Margin="406,147,0,0"      VerticalAlignment="Top" Width="120" SelectionChanged="CB_SelectionChanged"/>
+        <ComboBox x:Name="CB9" HorizontalAlignment="Left" Margin="406,241,0,0"      VerticalAlignment="Top" Width="120" SelectionChanged="CB_SelectionChanged"/>
         <TextBox  x:Name="site1" HorizontalAlignment="Left"     Margin="22,88,0,0"      TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="site_TextChanged" Visibility="hidden"/>
         <TextBox  x:Name="site2" HorizontalAlignment="Left"     Margin="219,88,0,0"     TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="site_TextChanged" Visibility="Hidden"/>
-        <TextBox  x:Name="site3" HorizontalAlignment="Center"   Margin="0,88,0,0"       TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="site_TextChanged" Visibility="Hidden"/>
+        <TextBox  x:Name="site3" HorizontalAlignment="Left"   Margin="406,88,0,0"       TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="site_TextChanged" Visibility="Hidden"/>
         <TextBox  x:Name="site4" HorizontalAlignment="Left"     Margin="22,183,0,0"     TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="site_TextChanged" Visibility="Hidden"/>
         <TextBox  x:Name="site5" HorizontalAlignment="Left"     Margin="219,183,0,0"    TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="site_TextChanged" Visibility="Hidden"/>
-        <TextBox  x:Name="site6" HorizontalAlignment="Center"   Margin="0,183,0,0"      TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="site_TextChanged" Visibility="Hidden"/>
+        <TextBox  x:Name="site6" HorizontalAlignment="Left"   Margin="406,183,0,0"      TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="site_TextChanged" Visibility="Hidden"/>
         <TextBox  x:Name="site7" HorizontalAlignment="Left"     Margin="22,281,0,0"     TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="site_TextChanged" Visibility="Hidden"/>
         <TextBox  x:Name="site8" HorizontalAlignment="Left"     Margin="219,281,0,0"    TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="site_TextChanged" Visibility="Hidden"/>
-        <TextBox  x:Name="site9" HorizontalAlignment="Center"   Margin="0,281,0,0"      TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="site_TextChanged" Visibility="Hidden"/>
+        <TextBox  x:Name="site9" HorizontalAlignment="Left"   Margin="406,281,0,0"      TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="site_TextChanged" Visibility="Hidden"/>
+        <Button x:Name="UpButton" Content="Up" HorizontalAlignment="Left" Margin="620,148,0,0" VerticalAlignment="Top" Click="UpButton_Click"/>
     </Grid>
 </Window>
