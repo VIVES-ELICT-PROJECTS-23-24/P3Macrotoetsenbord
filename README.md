@@ -12,3 +12,6 @@ De app kan met de link hieronder worden gedownload.
 
 Nadat je de zip uitpakt kan je de app starten door te dubbel klikken op "macro software".
 Verdere uitleg hoe de app werkt vind je hieronder.
+## Problemen en Feedback
+
+Als je een probleem tegenkomt of feedback hebt, maak dan een [issue](https://github.com/VIVES-ELICT-PROJECTS-23-24/P3Macrotoetsenbord/issues) aan of neem contact op met ons team via onze [website](https://macro-toetsenbord-b7e70.web.app/).
