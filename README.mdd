@@ -1,0 +1,21 @@
+# "Macro Keyboard app"
+
+## Overzicht
+De "Macro Keyboard app" stelt gebruikers in staat om aangepaste toets combinaties toe te wijzen aan de macrotoetsen van het macro toetsenbord, waardoor ze snel toegang krijgen tot veelgebruikte acties en commando's tijdens het werken op hun pc of laptop.
+
+## Installatie
+1. Er hoeft niets geïnstalleerd te worden met betrekking tot programma's. Bij deze README zit een uitvoerbaar bestand (.exe) waarmee je de toets combinaties kunt aanpassen en automatisch verbonden wordt met je macrotoetsenbord.
+
+## Functies 
+1. Verbinden van het macrotoetsenbord met pc/laptop. (Meer informatie hier over in het USAGE-bestand)
+2. Het aanpassen van de toets combinaties. (Meer informatie hier over in het USAGE-bestand)
+
+## Problemen en Feedback
+Als je een probleem tegenkomt of feedback hebt, maak dan een [issue](https://github.com/VIVES-ELICT-PROJECTS-23-24/P3Macrotoetsenbord/issues) aan of neem contact op met ons team via [Team@MacroKeyboardApp.com].
+
+## Licentie
+Dit project is gelicentieerd onder de MIT-licentie. Zie het `LICENSE`-bestand voor meer informatie.
+
+---
+
+Bedankt voor het gebruik van de Macro Keyboard app! Als je vragen hebt, neem dan gerust contact op met ons team via [Team@MacroKeyboardApp.com].
