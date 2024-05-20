@@ -7,8 +7,3 @@ De "Macro toetsenbord app" stelt gebruikers in staat om aangepaste toets combina
 ## Installatie
 
 Er hoeft niets geïnstalleerd te worden met betrekking tot programma's. Bij deze README zit een uitvoerbaar bestand (.exe) waarmee je de toets combinaties kunt aanpassen en automatisch verbonden wordt met je macrotoetsenbord.
-
-```bash
-  npm install my-project
-  cd my-project
-```
