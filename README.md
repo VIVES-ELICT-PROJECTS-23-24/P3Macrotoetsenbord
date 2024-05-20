@@ -6,8 +6,9 @@ De "Macro toetsenbord app" stelt gebruikers in staat om aangepaste toets combina
 
 ## Installatie
 
-Er hoeft niets geïnstalleerd te worden met betrekking tot programma's. Bij deze README zit een uitvoerbaar bestand (.exe) waarmee je de toets combinaties kunt aanpassen en automatisch verbonden wordt met je macrotoetsenbord.
-```bash
-  npm install my-project
-  cd my-project
-```
+De app kan met de link hieronder worden gedownload.
+
+🔗[Download exe](https://github.com/VIVES-ELICT-PROJECTS-23-24/P3Macrotoetsenbord/raw/master/Macro%20Keyboard%20software.zip)
+
+Nadat je de zip uitpakt kan je de app starten door te dubbel klikken op "macro software".
+Verdere uitleg hoe de app werkt vind je hieronder.
