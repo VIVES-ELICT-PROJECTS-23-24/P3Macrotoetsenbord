@@ -23,6 +23,12 @@ Verdere uitleg hoe de app werkt vind je hieronder.
 ## Werking
 
 1. Verbinden van het macrotoetsenbord met pc/laptop:
+- Sluit eerst het macrotoetsenbord aan op een beschikbare USB-poort van je pc op laptop.
+- Start de Macro Toetsenbord app door het uitvoerbare bestand (macro software) te openen.
+- De app zal alleen tevoorschijn komen wanneer er verbinding is gemaakt. 
+- Het macrotoetsenbord wordt automatisch verbonden zodra de app is gestart.
+- In het geval dat er geen verbinding word gemaakt zal het programma zichzelf sluiten na tien seconden.
+
 
 ```1
   • Sluit eerst het macrotoetsenbord aan op een beschikbare USB-poort van je pc op laptop.
@@ -50,4 +56,12 @@ Nadat je de gewenste instellingen hebt gemaakt:
 ## Licentie
 
 Dit project is gelicentieerd onder de MIT-licentie. Zie het `LICENSE` bestand voor meer informatie.
+
+
+## Features
+
+- Light/dark mode toggle
+- Live previews
+- Fullscreen mode
+- Cross platform
 
